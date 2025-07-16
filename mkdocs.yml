@@ -1,6 +1,59 @@
+
 site_name: Infatuated's blog
 site_url: https://To-The-Infatuated.github.io
 site_author: Infatuated
 theme:
   name: material #主题
+  favicon: images/favicon.png
 
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+  palette:
+    # Toggle light mode
+    - scheme: default
+      primary: light green
+      accent: light green
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+
+    # Toggle dark mode
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    
+nav:
+  - 首页: 'index.md'
+  - 课程: 
+      - 通识必修课程:
+         - 思政类: 'Courses/1politic theory-Courses.md'
+         - 自然科学类: 'Courses/1natural-courses.md'
+      - 体育课: 'Courses/1PE-courses.md'
+      - 通识选修课程: 'Courses/1Elective-courses.md'
+      - 其他课程: 'Courses/1Other courses.md'
+      - 专业课程: 'Courses/1Major-Courses.md'
+      - 专业基础课程: 'Courses/1Major Funda-courses.md'
+  - 碎碎念 : '碎碎念/20250719.md'
+
+
+
+
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+extra:
+  disqus: <shortname>
