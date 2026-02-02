@@ -1,0 +1,174 @@
+/* 全局样式重置，确保没有默认边距和内边距 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* 流星雨背景效果 */
+.hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    min-height: 100vh;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin: 0;
+    z-index: -1;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/assets/images/60939e20698ad2a7982c04b03c50c26b.png') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -2;
+}
+
+/* 星空背景 */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--duration) infinite ease-in-out;
+}
+
+/* 流星雨 */
+.meteor {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    height: 2px;
+    border-radius: 50%;
+    animation: meteor var(--duration) linear infinite;
+}
+
+/* 动画效果 */
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes meteor {
+    0% {
+        transform: translateX(-100%) translateY(0) rotate(30deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100vw) translateY(100vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+/* 首页内容样式 */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #d0d0d0;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4), 0 0 15px rgba(255, 255, 255, 0.2);
+    font-weight: normal;
+    font-family: 'Brush Script MT', 'Lucida Calligraphy', 'Segoe Script', cursive;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    font-family: 'Georgia', 'Times New Roman', 'Microsoft YaHei', serif;
+    line-height: 1.6;
+}
+
+/* 确保其他页面不受影响 */
+:not(.hero) {
+    position: relative;
+    z-index: 2;
+}
+
+/* 确保导航栏和标签页显示在最上层 */
+.md-header,
+.md-tabs,
+.md-sidebar {
+    position: relative;
+    z-index: 3;
+}
+
+/* 将导航栏改为黑色 */
+.md-header {
+    background-color: #000000 !important;
+}
+
+/* 将标签页改为黑色 */
+.md-tabs {
+    background-color: #000000 !important;
+}
+
+/* 确保导航栏和标签页文本颜色为白色 */
+.md-header__button,
+.md-header__topic,
+.md-header__title,
+.md-tabs__link {
+    color: #ffffff !important;
+}
+
+/* 隐藏首页的边栏 */
+body:has(.hero) .md-sidebar {
+    display: none;
+}
+
+/* 确保首页的主内容区域占据整个宽度 */
+body:has(.hero) .md-main {
+    margin-left: 0;
+}
+
+body:has(.hero) .md-main__inner {
+    grid-template-columns: 1fr;
+}
+
+/* 确保导航栏和标签页显示在最上层 */
+.md-header,
+.md-tabs {
+    position: relative;
+    z-index: 3;
+}
